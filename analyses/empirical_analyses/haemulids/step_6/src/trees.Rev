@@ -1,0 +1,15 @@
+#########################
+# Some helper variables #
+#########################
+
+move_index  = 1
+mn_index    = 1
+H           = 0.587405
+name        = "joint_analysis"
+pps         = true
+
+treetrace = readTreeTrace("output/" + name + "/trees_posterior_combined.trees", treetype="clock", burnin=0)
+map_tree  = mapTree(treetrace,"output/" + name + "/map_tree_combined.tre")
+mcc_tree  = mccTree(treetrace,"output/" + name + "/mcc_tree_combined.tre")
+
+q()

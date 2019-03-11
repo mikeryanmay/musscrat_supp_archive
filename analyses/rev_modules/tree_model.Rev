@@ -1,0 +1,75 @@
+#########################
+# Define the tree model #
+#########################
+
+# read the starting tree
+tree = readTrees("../data/starting_tree.tre")[1]
+
+num_branches = 2 * num_species - 2
+
+# sampling fraction
+total_num_species = 91 # from Table 2 in Tavera et al. 2012
+rho = num_species / total_num_species
+
+# root age
+root_age = tree.rootAge()
+
+# diversification rates
+diversification_mean = ln(total_num_species / 2)
+turnover_mean        = ln(total_num_species / 2)
+
+diversification     ~ dnLognormal( ln(diversification_mean) - (H^2) / 2, H)
+moves[move_index++] = mvScale(diversification, weight=0.5)
+
+turnover            ~ dnLognormal( ln(turnover_mean) - (H^2) / 2, H)
+moves[move_index++] = mvScale(turnover, weight=0.5)
+
+speciation := diversification + turnover
+extinction := turnover
+
+# clades
+haemu_aniso = clade("Anisotremus_caesius",
+                    "Anisotremus_davidsonii",
+                    "Anisotremus_dovii",
+                    "Anisotremus_interruptus",
+                    "Anisotremus_moricandi",
+                    "Anisotremus_pacifici",
+                    "Anisotremus_scapularis",
+                    "Anisotremus_surinamensis",
+                    "Anisotremus_virginicus",
+                    "Haemulon_album",
+                    "Haemulon_aurolineatum",
+                    "Haemulon_bonariense",
+                    "Haemulon_boschmae",
+                    "Haemulon_carbonarium",
+                    "Haemulon_chrysargyreum",
+                    "Haemulon_flaviguttatum",
+                    "Haemulon_flavolineatum",
+                    "Haemulon_macrostomum",
+                    "Haemulon_maculicauda",
+                    "Haemulon_melanurum",
+                    "Haemulon_parra",
+                    "Haemulon_plumierii",
+                    "Haemulon_sciurus",
+                    "Haemulon_scudderii",
+                    "Haemulon_spB",
+                    "Haemulon_sexfasciatum",
+                    "Haemulon_steindachneri_Pacific",
+                    "Haemulon_steindachneri_Atlantic",
+                    "Haemulon_striatum",
+                    "Haemulon_vittatum")
+
+# make the tree object
+tree_prior = dnBirthDeath(speciation, extinction, rho=rho, rootAge=root_age, taxa=taxa)
+psi ~ dnConstrainedTopology(tree_prior, [haemu_aniso])
+
+moves[move_index++] = mvNodeTimeScale(psi, weight=25.0)
+moves[move_index++] = mvSubtreeScale(psi, weight=25.0)
+moves[move_index++] = mvNodeTimeSlideUniform(psi, weight=25.0)
+moves[move_index++] = mvNodeTimeSlideBeta(psi, weight=50.0, tuneTarget=0.234)
+moves[move_index++] = mvNarrow(psi, weight=100.0)
+moves[move_index++] = mvFNPR(psi, weight=100.0)
+# moves[move_index++] = mvGPR(psi, weight=25.0)
+
+psi.setValue(tree)
+estimate_tree = true

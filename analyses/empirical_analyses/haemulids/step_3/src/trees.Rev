@@ -1,0 +1,17 @@
+#########################
+# Some helper variables #
+#########################
+
+move_index  = 1
+mn_index    = 1
+H           = 0.587405
+name        = "divergence_time_analysis"
+pps         = true
+
+for(run_ID in 1:4) {
+    treetrace = readTreeTrace("output/" + name + "/trees_posterior_" + run_ID + ".trees", treetype="clock")
+    map_tree = mapTree(treetrace,"output/" + name + "/map_tree_" + run_ID + ".trees")
+    mcc_tree = mccTree(treetrace,"output/" + name + "/mcc_tree_" + run_ID + ".trees")
+}
+
+q()

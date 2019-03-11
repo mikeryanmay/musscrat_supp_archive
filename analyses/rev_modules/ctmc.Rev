@@ -1,0 +1,8 @@
+#########################
+# Define the CTCM model #
+#########################
+
+for(i in 1:num_datasets) {
+    seq[i] ~ dnPhyloCTMC(tree=psi, Q=Q[i], branchRates=branch_rates * relative_rates[i], siteRates=site_rates[i], siteRatesProbs=site_weights[i])
+    seq[i].clamp(data[i])
+}

@@ -1,0 +1,15 @@
+#################
+# Read the data #
+#################
+
+discrete_traits   = readDiscreteCharacterData("../data/traits/habitat.nex")
+continuous_traits = readContinuousCharacterData("../data/traits/continuous_traits_body_size.nex")
+continuous_traits.excludeCharacter(v(3,4,8))
+
+tree = readTrees("../data/sequence_tree.tree")[1]
+
+num_species     = tree.ntips()
+taxa            = tree.taxa()
+num_disc_states = 2
+num_cont_traits = continuous_traits.nchar()
+num_nodes       = tree.nnodes()

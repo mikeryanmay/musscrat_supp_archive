@@ -1,0 +1,24 @@
+#######################
+# Define the monitors #
+#######################
+
+monitors[mn_index++] = mnModel(filename="output/" + name + "/params_posterior_" + run_ID + ".log", printgen=10, separator = TAB)
+monitors[mn_index++] = mnScreen(printgen=100, background_mean, state_ratio, total_num_changes)
+
+##########################
+# Define the MCMC object #
+##########################
+
+my_model = model(psi)
+analysis = mcmc(my_model, monitors, moves)
+
+################
+# Run the MCMC #
+################
+
+analysis.burnin(generations=5000, tuningInterval=500)
+analysis.operatorSummary()
+analysis.run(generations=100000, tuningInterval=1000000)
+# analysis.operatorSummary()
+
+# q()

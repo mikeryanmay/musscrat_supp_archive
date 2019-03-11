@@ -1,0 +1,24 @@
+########################################################
+# Define the autocorrelated lognormal background rates #
+########################################################
+
+background_mean_log ~ dnUniform(-3,1)
+moves[move_index++] = mvSlide(background_mean_log, weight=5.0)
+background_mean     := 10^background_mean_log
+
+background_sd ~ dnExponential(1 / expected_sd)
+moves[move_index++] = mvScale(background_sd, weight=10.0)
+
+# set the root rate to the mean rate
+states[num_nodes] := background_mean
+
+# node rates
+for (i in (num_nodes-1):1 ) {
+    states[i] ~ dnLognormal(ln(states[psi.parent(i)]), background_sd * sqrt(psi.branchLength(i)))
+    moves[move_index++] = mvScale(states[i], weight=5.0)
+}
+
+# branch rates (the geometric mean of the start and end rate)
+for (i in 1:num_branches) {
+    background_branch_rate[i] := (states[psi.parent(i)] + states[i]) / 2
+}

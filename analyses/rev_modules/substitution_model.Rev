@@ -1,0 +1,27 @@
+#################################
+# Define the substitution model #
+#################################
+
+er_prior    = dnDirichlet(v(1,1,1,1,1,1))
+pi_prior    = dnDirichlet(v(1,1,1,1))
+alpha_prior = dnLognormal( ln(1), 2 * H )
+
+for(i in 1:num_datasets) {
+
+    er[i] ~ er_prior
+    moves[move_index++] = mvBetaSimplex(er[i], weight=0.25, tuneTarget=0.234)
+
+    pi[i] ~ pi_prior
+    moves[move_index++] = mvBetaSimplex(pi[i], weight=0.25, tuneTarget=0.234)
+
+    alpha[i] ~ alpha_prior
+    moves[move_index++] = mvScale(alpha[i], weight=0.25)
+
+    # construct the rate matrix
+    Q[i] := fnGTR(er[i], pi[i])
+
+    disc_gamma[i]   := fnDiscretizeGammaQuadrature(alpha[i], alpha[i], 4)
+    site_rates[i]   := disc_gamma[i][1]
+    site_weights[i] := simplex(disc_gamma[i][2])
+
+}

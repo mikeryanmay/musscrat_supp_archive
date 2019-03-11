@@ -1,0 +1,57 @@
+#NEXUS
+
+BEGIN DATA;
+	DIMENSIONS NTAX=49 NCHAR=127;
+	FORMAT DATATYPE=DNA MISSING=? GAP=-;
+MATRIX
+Anisotremus_caesius                 gctttagacgtcagggcagtcatgttaaaaacccctaaac-acaggcccaaactaaatga-aacctcggttggggcgaccatggggtaaaaaaaaccccccacgcaga-tagggagtac-t-tgctc
+Anisotremus_davidsonii              gctttagacgtcagggcagtcatgttaagcacccctaaac-acagatccaaactaaatga-aacctcggttggggcgaccatggggtaaaaaaaaccccccacgcaga-tagggagtac-a-tgctc
+Anisotremus_dovii                   gctttagac-ctaagacagtcatgttaaacacccctaaac-acaggattaaactaaatga-agccttggttggggcgaccatggggtaaaacaaaccccccacgcgga-aagggagcacaactcctc
+Anisotremus_interruptus             gctttagacgtccgggcagtcatgttaagcacccctaaat-acagacccaaactaaatga-atcctcggttggggcgaccatggggtaaaaaaaaccccccacgcaga-cagggagtac-t-tgctc
+Anisotremus_moricandi               gctttagacacaaaggcagtcacgttaagcacacctagat-acagggtcaaactaaatga-agcctcggttggggcgaccatggggtaaaacaaaccccccacgcgga-aggggagtac-t-tcctc
+Anisotremus_pacifici                gctttagaca-caaggcagccatgtcaataacccctaaac-acaggaccaaaccacatgc-cccctcggttggggcgaccgtggggtaaaagaaaccccccatgaaga-gagagagtac-t-tcctc
+Anisotremus_scapularis              gctttagacgccagggcagtcatgttaagcacccctaaac-atagacccaaactaaatga-aacctcggttggggcgaccatggggtaaaaaaaaccccccacgcaga-tagggagtacat-tgctc
+Anisotremus_surinamensis            gctttagacgtccgggcagtcatgttaagcacccctaaat-acagatccaaactaaatga-atcctcggttggggcgaccatggggtaaaaaaaaccccccacgcaga-cagggagtac-t-tgctc
+Anisotremus_virginicus              gctttagacgtcagggcagtcatgttaagaacccctaaac-acaggtccaaactaaatga-aacctcggttggggcgaccatggggtagaaaaaaccccccacgcaga-tagggagtac-t-tgctc
+Conodon_nobilis                     gctttagacaccatggcagccatgttaagaacccccaaac-acagggccaaactagatgc-cccctcggttggggcgaccatggggtaaaatcaaccccccacgcggacaaggaagaac---tcccc
+Conodon_serrifer                    gctttagacaccacggcagccatgttaagaacccccagac-acaggaccaaactagatgc-cccctcggttggggcgaccatggggtaaaatcaaccccccacgcggacaagggagtac---tcccc
+Emellichthyops_atlanticus           gctttagacactaaggcagtcatgttaagcaaccc-aaac-acgggataaaactaaaaga-gtcctcggttggggcgaccctggggtaaaacagaccccccacgcgga-aaaggagcac-a-tgctc
+Haemulon_album                      gctttagacaccaaggtagtcatgttaagcatcccaagac-aaacgattaaactagatga-gccctcggttggggcgaccatggggtaaaacaaaccccccacgcgga-aagggagtac-t-ccctc
+Haemulon_aurolineatum               gctttagacaccaaggtagccatgttaagcaccccacaac-aaaggactaaactagatga-accctcggttggggcgaccatggggtaaaataaaccccccacgcgga-aagggagcac-t-tcctc
+Haemulon_bonariense                 gctttagacaccaaggcagccatgttaagcaccccaaaac-aaaggatcaaactagatgg-gccctcggttggggcgaccatggggtaaaacaaaccccccacgcaga-aagggaggac-c-ccctc
+Haemulon_boschmae                   gctttagacaccaaggtagtcatgttaagcaacccaaaac-aaaggattaaactagatga-gccctcggttggggcgaccatggggtaaaataaaccccccacgcgga-aagggagaac-t-tcctc
+Haemulon_carbonarium                gctttagacaccaaggtagtcatgttaagcaccccaaaac-aaaggattaaactagatga-gccctcggttggggcgaccatggggtaaaataaaccccccacgcgga-aagggagaac-t-tcctc
+Haemulon_chrysargyreum              gctttagacacccgggcagtcatgttaagcacccacaaac-aaagaaccaaactagatga-atcctcggttggggcgaccatggggtaaaacaaaccccccacgcgga-aagggagtac-t-ccctc
+Haemulon_flaviguttatum              gctttagacaccaaggtagtcatgttaagcaccccaaaac-aaagggtcaaactagatga-gccctcggttggggcgaccatggggtaaaacgaaccccccacgcgga-aagggagaac-t-tcctc
+Haemulon_flavolineatum              gctttagacaccaaggtagtcatgttaagcaccccgaaac-aaagggtcaaactagatga-gccctcggttggggcgaccatggggtaaaataaaccccccacgcgga-aagggagaac-t-tcctc
+Haemulon_macrostomum                gctttagacaccaaggtagtcatgttaagcaccccaaaac-aaaggaccaaactagatga-gccctcggttggggcgaccatggggtaaaataaaccccccacgcgga-aagggagaac-t-tcctc
+Haemulon_maculicauda                gctttagacaccaaggtagtcatgttaagcaccccaaaac-aaagggtcaaactagatga-gccctcggttggggcgaccatggggtaaaacgaaccccccacgcgga-aagggagaac-t-tcctc
+Haemulon_melanurum                  gctttagacgccaaggtagtcatgttaagcatctcaagat-aaaggattaaactagatga-gccctcggttggggcgaccatggggtaaaacaaaccccccacgcgga-aagggagtac-t-tcctc
+Haemulon_parra                      gctttagacaccaaggcagccatgttaagcaccccaaaac-aaaggatcaaactagatga-gccctcggttggggcgaccatggggtaaaacaaaccccccacgcaga-aagggaggac-c-ccctc
+Haemulon_plumierii                  gctttagacaccaaggtagccatgttaagcaccccaaaac-aaagggccaaactgaatga-accctcggttggggcgaccatggggtaaaacaaaccccccacgcgga-aaaggagtac-a-ctctc
+Haemulon_sciurus                    gctttagacaccaaggcagccatgttaagcaccccaaaac-aaaggactaaactaaatga-accctcggttggggcgaccatggggtaaaacaaaccccccacgcgga-aaaggagtac-a-ctctc
+Haemulon_scudderii                  gctttagacaccaaggtagtcatgttaagccccccaaaac-aaaggactaaactagatga-gccctcggttggggcgaccatggggtagaacaaaccccccacgcgga-aagggagtac-t-tcctc
+Haemulon_spB                        gctttagacaccaaggtagtcatgttaagccccccaaaac-aaaggaccaaactagatga-gccctcggttggggcgaccatggggtagaacaaaccccccacgcgga-aagggagtac-t-ttctc
+Haemulon_sexfasciatum               gctttagacaccaaggtagtcatgttaagccccccaaaac-aaaggattaaactagatga-gccctcggttggggcgaccatggggtagaacaaaccccccacgcgga-aagggagtac-c-tcctc
+Haemulon_steindachneri_Pacific      gctttagacaccaaggtagtcatgttaagcaccccgaaac-aaaggattaaactagatgg-cccctcggttggggcgaccatggggtaaaataaaccccccacgcgga-aagggagaac-t-tcctc
+Haemulon_steindachneri_Atlantic     gctttagacaccaaggtagccatgttaagcaccccaaagc-aaaggattaaactagatgg-gccctcggttggggcgaccatggggtaaaataaaccccccacgcgga-aagggaggac-t-tcctc
+Haemulon_striatum                   gctttagacaccaaggtagccatgttaagcaccccaaaac-aaagggctaaactagctgg-gccctcggttggggcgaccatggggtaaaacaaaccccccacgcgga-aagggagaac-t-ttctc
+Haemulopsis_axillaris               gctttagac--tatggcagttatattaactaaccccctac--cggcaacaaactaaatga-tccctcggttggggcgaccatggggtaaaataaaccccccacgcggatatgggagcac---tcccc
+Haemulopsis_elongatus               gctttagac--tacggcagtcatgttaaataaccccttcc--cggcaataaactaaatga-ttcctcggttggggcgaccatggggtaaaataaaacccccacgcggatacgggaacac---ctccc
+Haemulopsis_leuciscus               gctttagac--tatggcagtcatgttaagtaaccctctac--cggcaataaactagatga-cccctcggttggggcgaccatggggtaaaacaaaacccccacgcggatacgggagcac---tcccc
+Haemulopsis_nitidus                 gctttagac--tacgacagtcatgttaaataaacctctgc--cggcgataaaccagatgatcccctcggttggggcgaccatggggtagaataaaacccccacgcggatacgggagca-----accc
+Haemulon_vittatum                   gctttagacaccaaggtagccatgttaagcaccccaagac-aaagggctaaactagctgg-gccctcggttggggcgaccatggggtaaaacaaaccccccacgcgga-aagggagaac-t-ttctc
+Isacia_conceptionis                 gctttagacaccaaggcagtcacgttaagcacccccaaac-acggaatcaaactaagtga-tccctcggttggggcgaccatggggtaaaataaaccccccacgcgga-aggagagtac-a-ccctc
+Microlepidotus_inornatus            gctttagacaccaaggcagtcacgttaagcaccccccaat-acgggatcaaactaagtga-gccctcggttggggcgaccatggggtaaagcaaaccccccacgcgga-gagagagtac-a-ccctc
+Microlepidotus_brevipinnis          gctttagacaccaaggcagtcacgttaagcaccccccaat-acaggatcaaactaagtga-gccctcggttggggcgaccatggggtaaagcaaaccccccacgcgga-gagagagtac-a-ccctc
+Orthopristis_chalceus               gctttagacaccaaggcaaccacgttaagcacccct-gac-acgggatcaaactaaatga-gccctcggttggggcgaccatggggtaaaacaaaccccccacgcgga-aggggaggac-a-ccctc
+Orthopristis_reddingi               gctttagacaccaaggcaaccacgttaagcacccct-aac-acgggattaaactaagtga-gccctcggttggggcgaccatggggtaaaagaaaccccccacgcgga-aggggaggac-a-ccctc
+Orthopristis_ruber                  gctttagacaccaaggcaaccacgttaagcacccct-gac-acgggattaaactaaatga-gccctcggttggggcgaccatggggtaaaataaaccccccacgcgga-aagggagcac-a-ccctc
+Orthopristis_chrysoptera            gctttagacaccaaggcaaccacgttaagcacccct-gat-acaggattaaactaagtga-gccctcggttggggcgaccatggggtaaaataaaccccccacgcgga-aagggaggac-a-ccctc
+Pomadasys_branickii                 gctttagacaccaaggcagtcatgttaagcacccccaaac-acgggtccaaactagatga-gccctcggttggggcgaccatggggtaaaataaaccccccacgcgga-aaggggacac---tcccc
+Pomadasys_crocro                    gctttagacatcaaggcagtcatgttaagcacccccaaac-acgggaccaaactagatga-gccctcggttggggcgaccatggggtaaaataaaccccccacgcgga-aagggagcac---tcccc
+Pomadasys_macracanthus              gctttagacaccaaggcagtcacgttaagcaccctcaaat-aaaggactaaactagatga-accctcggttggggcgaccctggggtaaaacaaaccccccacgcgga-aagggagcac-t-ccctc
+Pomadasys_panamensis                gctttagacactaagagagccatgttaaacactcctaaat-acagggccaaactaaatgc-atcctcggttggggcgaccatggggaaaaatccaacccccacgcgga-aagggagcactcctcctc
+Xenichthys_xantii                   gcttcagacactacggcagtcgtgttaaacacccccaaac-acggggcaaaaccaaatga-accctcggttggggcgaccatgggggaaaacaaaccccccacgcagataggggagtac---tctcc
+;
+END;

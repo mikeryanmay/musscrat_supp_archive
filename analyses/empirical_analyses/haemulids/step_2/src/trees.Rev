@@ -1,0 +1,24 @@
+#########################
+# Some helper variables #
+#########################
+
+move_index  = 1
+mn_index    = 1
+name        = "combined_unrooted"
+
+#################
+# Read the data #
+#################
+
+source("../../../rev_modules/read_sequence_data.Rev")
+
+#######################
+# Summarize the trees #
+#######################
+
+for(run_ID in 1:4) {
+    treetrace = readTreeTrace("output/" + name + "/trees_posterior_" + run_ID + ".trees", treetype="non-clock")
+    map_tree = mapTree(treetrace,"output/" + name + "/map_tree_" + run_ID + ".trees")
+}
+
+q()

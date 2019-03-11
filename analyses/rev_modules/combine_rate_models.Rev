@@ -1,0 +1,7 @@
+###########################
+# Combine the rate models #
+###########################
+
+overall_branch_rate := (background_branch_rate * state_branch_rate)^0.5
+
+# taking the square root since now we scale the standard deviation instead of the variance

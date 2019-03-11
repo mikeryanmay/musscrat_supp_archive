@@ -1,0 +1,24 @@
+#####################################################
+# Define the lognormal-distributed background rates #
+#####################################################
+
+background_mean_log ~ dnUniform(-3,1)
+moves[move_index++] = mvSlide(background_mean_log, weight=20.0)
+background_mean := 10^background_mean_log
+
+background_sd ~ dnExponential(1 / expected_sd)
+moves[move_index++] = mvScale(background_sd, weight=10.0)
+
+# for(i in 1:num_branches) {
+#     background_branch_rate_log[i] ~ dnNormal(ln(background_mean), background_sd)
+#     moves[move_index++] = mvSlide(background_branch_rate_log[i], weight=2.0)
+#     background_branch_rate[i] := exp(background_branch_rate_log[i])
+# }
+# moves[move_index++] = mvVectorSlideRecenter(background_branch_rate_log, background_mean_log, weight=5.0, tuneTarget=0.234)
+# moves[move_index++] = mvShrinkExpand(background_branch_rate_log, background_sd, weight=5.0, tuneTarget=0.234)
+
+for(i in 1:num_branches) {
+    background_branch_rate[i] ~ dnLognormal(ln(background_mean) - (background_sd^2)/2, background_sd)
+    moves[move_index++]       = mvScale(background_branch_rate[i], weight=2.0)
+}
+moves[move_index++] = mvVectorScale(background_branch_rate, weight=10.0)

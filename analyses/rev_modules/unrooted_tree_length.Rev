@@ -1,0 +1,8 @@
+################################
+# Define the tree-length model #
+################################
+
+tl_log ~ dnUniform(-3, 2)
+moves[move_index++] = mvSlide(tl_log, weight=10.0)
+
+branch_rates := 10^tl_log

@@ -1,0 +1,18 @@
+#########################################################
+# Define the uncorrelated-lognormal-relaxed-clock model #
+#########################################################
+
+branchrate_mean_log ~ dnUniform(-3,1)
+moves[move_index++] = mvSlide(branchrate_mean_log, weight=20.0, tuneTarget=0.2)
+moves[move_index++] = mvSlide(branchrate_mean_log, weight=20.0, tuneTarget=0.4)
+moves[move_index++] = mvSlide(branchrate_mean_log, weight=20.0, tuneTarget=0.6)
+branchrate_mean     := 10^branchrate_mean_log
+
+branchrate_sd ~ dnExponential(1 / H)
+moves[move_index++] = mvScale(branchrate_sd, weight=20.0)
+
+for(i in 1:num_branches) {
+    branch_rates[i]     ~ dnLognormal(ln(branchrate_mean) - (branchrate_sd^2)/2, branchrate_sd)
+    moves[move_index++] = mvScale(branch_rates[i], weight=2.0)
+}
+moves[move_index++] = mvVectorScale(branch_rates, weight=10.0)

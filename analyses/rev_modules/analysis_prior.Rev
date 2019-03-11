@@ -1,0 +1,35 @@
+###################
+# Do the analysis #
+###################
+
+monitors[mn_index++] = mnScreen(printgen=100)
+monitors[mn_index++] = mnModel(filename="output/" + name + "/params_prior_" + run_ID + ".log", printgen=10, separator = TAB)
+
+if(estimate_tree == true) {
+    monitors[mn_index++] = mnFile(filename="output/" + name + "/trees_prior_" + run_ID + ".trees", printgen=10, separator = TAB, psi)
+}
+
+###########################
+# Define the model object #
+###########################
+
+my_model = model(psi)
+
+################
+# Run the MCMC #
+################
+
+analysis = mcmc(my_model, monitors, moves)
+analysis.burnin(generations=5000,tuningInterval=1000, underPrior=TRUE)
+analysis.operatorSummary()
+analysis.run(generations=100000, underPrior=TRUE)
+# analysis.operatorSummary()
+
+if(estimate_tree == true) {
+    if(type(psi) == "Tree") {
+        treetrace = readTreeTrace("output/" + name + "/trees_prior_" + run_ID + ".trees", treetype="non-clock")
+    } else {
+        treetrace = readTreeTrace("output/" + name + "/trees_prior_" + run_ID + ".trees", treetype="clock")
+    }
+    map_tree = mapTree(treetrace,"output/" + name + "/map_tree_prior_" + run_ID + ".trees")
+}

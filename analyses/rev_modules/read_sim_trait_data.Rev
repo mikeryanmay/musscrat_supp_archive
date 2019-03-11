@@ -1,0 +1,13 @@
+#################
+# Read the data #
+#################
+
+tree              = readTrees("data/" + input + "/tree.tre")[1]
+discrete_traits   = readDiscreteCharacterData("data/" + input + "/disc_trait.nex")
+continuous_traits = readContinuousCharacterData("data/" + input + "/cont_traits.nex")
+
+num_species     = tree.ntips()
+taxa            = tree.taxa()
+num_disc_states = 2
+num_cont_traits <- continuous_traits.nchar()
+num_nodes       = tree.nnodes()

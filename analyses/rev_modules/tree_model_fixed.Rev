@@ -1,0 +1,9 @@
+#########################
+# Define the tree model #
+#########################
+
+num_branches = 2 * num_species - 2
+
+psi <- tree
+
+estimate_tree = false

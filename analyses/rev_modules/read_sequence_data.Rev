@@ -1,0 +1,42 @@
+#################
+# Read the data #
+#################
+
+data_16s_stem  = readDiscreteCharacterData("../data/full/16s_stem.nex")
+data_16s_loop  = readDiscreteCharacterData("../data/full/16s_loop.nex")
+
+data_S7 = readDiscreteCharacterData("../data/full/S7.nex")
+
+data_COI_pos_1 = readDiscreteCharacterData("../data/full/COI_pos_1.nex")
+data_COI_pos_2 = readDiscreteCharacterData("../data/full/COI_pos_2.nex")
+data_COI_pos_3 = readDiscreteCharacterData("../data/full/COI_pos_3.nex")
+
+data_CYTB_pos_1 = readDiscreteCharacterData("../data/full/CYTB_pos_1.nex")
+data_CYTB_pos_2 = readDiscreteCharacterData("../data/full/CYTB_pos_2.nex")
+data_CYTB_pos_3 = readDiscreteCharacterData("../data/full/CYTB_pos_3.nex")
+
+data_RAG1_pos_1 = readDiscreteCharacterData("../data/full/RAG1_pos_1.nex")
+data_RAG1_pos_2 = readDiscreteCharacterData("../data/full/RAG1_pos_2.nex")
+data_RAG1_pos_3 = readDiscreteCharacterData("../data/full/RAG1_pos_3.nex")
+
+data_RAG2_pos_1 = readDiscreteCharacterData("../data/full/RAG2_pos_1.nex")
+data_RAG2_pos_2 = readDiscreteCharacterData("../data/full/RAG2_pos_2.nex")
+data_RAG2_pos_3 = readDiscreteCharacterData("../data/full/RAG2_pos_3.nex")
+
+data_TMO_pos_1 = readDiscreteCharacterData("../data/full/TMO_pos_1.nex")
+data_TMO_pos_2 = readDiscreteCharacterData("../data/full/TMO_pos_2.nex")
+data_TMO_pos_3 = readDiscreteCharacterData("../data/full/TMO_pos_3.nex")
+
+taxa = data_COI_pos_1.taxa()
+num_species = data_COI_pos_1.ntaxa()
+num_branches = 2 * num_species - 2
+
+data = v(data_16s_stem,   data_16s_loop,
+         data_S7,
+         data_COI_pos_1,  data_COI_pos_2,  data_COI_pos_3,
+         data_CYTB_pos_1, data_CYTB_pos_2, data_CYTB_pos_3,
+         data_RAG1_pos_1, data_RAG1_pos_2, data_RAG1_pos_3,
+         data_RAG2_pos_1, data_RAG2_pos_2, data_RAG2_pos_3,
+         data_TMO_pos_1,  data_TMO_pos_2,  data_TMO_pos_3)
+
+num_datasets = data.size()

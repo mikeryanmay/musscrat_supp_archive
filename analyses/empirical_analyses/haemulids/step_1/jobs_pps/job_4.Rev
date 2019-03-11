@@ -1,0 +1,42 @@
+#########################
+# Some helper variables #
+#########################
+
+region      = "CYTB"
+name        = region + "_unrooted"
+output      = "output/" + name + "/pps_statistics.csv"
+
+#################
+# Read the data #
+#################
+
+source("../../../rev_modules/read_data_subsets/read_sequence_data_" + region + ".Rev")
+
+##############################################################
+# Write the observed statistics to the first row of the file #
+##############################################################
+
+for(i in 1:num_datasets) {
+    stat[i] = data[i].computeMultinomialProfileLikelihood()
+}
+
+write(stat, filename=output, append=FALSE)
+
+###########################
+# Read the simulated data #
+###########################
+
+for(run in 1:4) {
+    for(sim in 1:1000) {
+        # read in the alignments
+        for(i in 1:num_datasets) {
+            seq     = readDiscreteCharacterData("output/" + name + "/pps_sim_" + run + "/posterior_predictive_sim_" + sim + "/seq[" + i + "].nex")
+            stat[i] = seq.computeMultinomialProfileLikelihood()
+        }
+        # write the statistics to file
+        write("\n", filename=output, append=TRUE)
+        write(stat, filename=output, append=TRUE)
+    }
+}
+
+q()

@@ -1,0 +1,11 @@
+#####################################
+# Define the continuous-trait model #
+#####################################
+
+proportional_var    ~ dnDirichlet(rep(alpha_sigma, num_cont_traits))
+moves[move_index++] = mvBetaSimplex(proportional_var, weight=10.0)
+relative_var := proportional_var * num_cont_traits
+relative_sd  := relative_var ^ 0.5
+
+correlation <- rep(0.0, choose(num_cont_traits, 2))
+sigma := fnVarCovar(relative_sd, correlation)

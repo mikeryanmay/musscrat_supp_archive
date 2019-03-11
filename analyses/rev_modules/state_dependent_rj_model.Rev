@@ -1,0 +1,19 @@
+####################################
+# Define the state-dependent model #
+####################################
+
+base_distribution    =  dnDirichlet(rep(alpha_gamma, num_disc_states))
+relative_state_rates ~  dnReversibleJumpMixture(simplex(rep(1, num_disc_states)), base_distribution, 0.5)
+moves[move_index++]  =  mvRJSwitch(relative_state_rates, weight=1.0)
+moves[move_index++]  =  mvBetaSimplex(relative_state_rates, alpha=10.0, weight=5.0, tune=true)
+state_rates          := relative_state_rates * num_disc_states
+is_state_dependent   := ifelse(relative_state_rates == simplex(rep(1, num_disc_states)), 0, 1)
+
+if(num_disc_states == 2) {
+    state_ratio := state_rates[2] / state_rates[1]
+}
+
+# the state-dependent branch rates
+for(i in 1:num_branches) {
+    state_branch_rate[i] := sum(disc_traits.relativeTimeInStates(i,1) * state_rates)
+}

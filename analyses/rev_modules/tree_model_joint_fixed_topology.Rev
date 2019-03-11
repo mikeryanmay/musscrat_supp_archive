@@ -1,0 +1,42 @@
+#########################
+# Define the tree model #
+#########################
+
+# read the starting tree
+# tree = readTrees("../data/starting_tree.tre")[1]
+
+num_branches = 2 * num_species - 2
+
+# sampling fraction
+total_num_species = 91 # from Table 2 in Tavera et al. 2012
+rho = num_species / total_num_species
+
+# root age
+root_age = 1.0
+
+# diversification rates
+diversification_mean = ln(total_num_species / 2)
+turnover_mean        = ln(total_num_species / 2)
+
+diversification     ~ dnLognormal( ln(diversification_mean) - (H^2) / 2, H)
+moves[move_index++] = mvScale(diversification, weight=0.5)
+
+turnover            ~ dnLognormal( ln(turnover_mean) - (H^2) / 2, H)
+moves[move_index++] = mvScale(turnover, weight=0.5)
+
+speciation := diversification + turnover
+extinction := turnover
+
+# make the tree object
+psi ~ dnBirthDeath(speciation, extinction, rho=rho, rootAge=root_age, taxa=taxa)
+
+# psi ~ dnBirthDeath(speciation, extinction, rho=rho, rootAge=root_age, taxa=taxa)
+moves[move_index++] = mvNodeTimeScale(psi, weight=50.0)
+moves[move_index++] = mvNodeTimeSlideUniform(psi, weight=50.0)
+moves[move_index++] = mvSubtreeScale(psi, weight=10.0)
+# moves[move_index++] = mvNarrow(psi, weight=50.0)
+# moves[move_index++] = mvFNPR(psi, weight=50.0)
+# moves[move_index++] = mvGPR(psi, weight=50.0)
+
+psi.setValue(tree)
+estimate_tree = true

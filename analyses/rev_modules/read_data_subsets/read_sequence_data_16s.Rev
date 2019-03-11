@@ -1,0 +1,13 @@
+#################
+# Read the data #
+#################
+
+data_stem = readDiscreteCharacterData("../data/pruned/16s_stem.nex")
+data_loop = readDiscreteCharacterData("../data/pruned/16s_loop.nex")
+
+taxa = data_stem.taxa()
+num_species = data_stem.ntaxa()
+
+data = v(data_stem, data_loop)
+
+num_datasets = data.size()

@@ -1,0 +1,6 @@
+##################################
+# Define the univariate BM model #
+##################################
+
+cont_traits ~ dnPhyloBrownianREML(tree=psi, branchRates=overall_branch_rate, nSites=num_cont_traits)
+cont_traits.clamp(continuous_traits)

@@ -1,0 +1,7 @@
+##########################################
+# Simulate posterior-predictive datasets #
+##########################################
+
+stochasticvariabletrace = readStochasticVariableTrace("output/" + name + "/stochastic_" + run_ID + ".log",delimiter=TAB)
+pps = posteriorPredictiveSimulation(model=my_model, directory="output/" + name + "/pps_alignments_" + run_ID , trace=stochasticvariabletrace)
+pps.run(thinning=1)

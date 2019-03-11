@@ -1,0 +1,6 @@
+######################################
+# Define the state-independent model #
+######################################
+
+state_ratio <- 1.0
+state_branch_rate := rep(state_ratio, num_branches)

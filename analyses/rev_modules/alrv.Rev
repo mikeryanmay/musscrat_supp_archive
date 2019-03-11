@@ -1,0 +1,9 @@
+###############################################
+# Define the among-locus rate variation model #
+###############################################
+
+proportional_rates ~ dnDirichlet(rep(1, num_datasets))
+moves[move_index++] = mvBetaSimplex(proportional_rates, weight=5.0, tuneTarget=0.234)
+moves[move_index++] = mvDirichletSimplex(proportional_rates, weight=2.0, numCats=num_datasets, offset=0, tuneTarget=0.234)
+
+relative_rates := proportional_rates * num_datasets

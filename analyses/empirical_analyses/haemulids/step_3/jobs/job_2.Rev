@@ -1,0 +1,56 @@
+#########################
+# Some helper variables #
+#########################
+
+move_index  = 1
+mn_index    = 1
+H           = 0.587405
+name        = "divergence_time_analysis"
+run_ID      = 2
+pps         = true
+
+seed(152147876)
+
+#################
+# Read the data #
+#################
+
+source("../../../rev_modules/read_sequence_data.Rev")
+
+#########################
+# Define the tree model #
+#########################
+
+source("../../../rev_modules/tree_model.Rev")
+
+#################################
+# Define the substitution model #
+#################################
+
+source("../../../rev_modules/substitution_model.Rev")
+
+###############################################
+# Define the among-locus rate variation model #
+###############################################
+
+source("../../../rev_modules/alrv.Rev")
+
+##################################
+# Define the relaxed clock model #
+##################################
+
+source("../../../rev_modules/lognormal_relaxed_clock.Rev")
+
+#########################
+# Define the CTCM model #
+#########################
+
+source("../../../rev_modules/ctmc.Rev")
+
+###################
+# Do the analysis #
+###################
+
+source("../../../rev_modules/analysis.Rev")
+
+q()

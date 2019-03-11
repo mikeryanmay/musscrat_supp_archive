@@ -1,0 +1,24 @@
+####################################
+# Define the state-dependent model #
+####################################
+
+# state_ratio_log ~ dnUniform(-2,2)
+# moves[move_index++] = mvSlide(state_ratio_log, delta=1.0, weight=2.0)
+# state_ratio := 10^state_ratio_log
+
+relative_state_rates ~  dnDirichlet(rep(alpha_gamma, num_disc_states))
+moves[move_index++]  =  mvBetaSimplex(relative_state_rates, alpha=10.0, weight=5.0)
+state_rates          := relative_state_rates * num_disc_states
+
+if(num_disc_states == 2) {
+    state_ratio := state_rates[2] / state_rates[1]
+}
+
+# the state-dependent branch rates
+for(i in 1:num_branches) {
+    if( psi.branchLength(i) == 0 ) {
+        state_branch_rate[i] := 0.0
+    } else {
+        state_branch_rate[i] := sum(disc_traits.relativeTimeInStates(i,1) * state_rates)
+    }
+}

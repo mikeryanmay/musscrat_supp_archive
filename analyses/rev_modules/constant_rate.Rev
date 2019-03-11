@@ -1,0 +1,9 @@
+########################################
+# Define the constant background rates #
+########################################
+
+background_mean_log ~ dnUniform(-3,1)
+moves[move_index++] = mvSlide(background_mean_log, weight=5.0)
+background_mean := 10^background_mean_log
+
+background_branch_rate := background_mean

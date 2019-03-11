@@ -1,0 +1,20 @@
+#########################
+# Define the tree model #
+#########################
+
+num_branches = 2 * num_species - 3
+
+# make the topology
+topology ~ dnUniformTopology(taxa)
+moves[move_index++] = mvNNI(topology, weight=50.0)
+moves[move_index++] = mvSPR(topology, weight=50.0)
+
+# make the branch lengths
+bl ~ dnDirichlet(rep(1, num_branches))
+moves[move_index++] = mvBetaSimplex(bl, weight=25.0, tuneTarget=0.234)
+moves[move_index++] = mvElementSwapSimplex(bl, weight=10.0, tuneTarget=0.234)
+
+# make the tree object
+psi := fnTreeAssembly(topology, bl)
+
+estimate_tree = true

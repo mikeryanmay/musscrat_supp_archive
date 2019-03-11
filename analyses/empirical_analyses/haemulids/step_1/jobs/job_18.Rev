@@ -1,0 +1,57 @@
+#########################
+# Some helper variables #
+#########################
+
+move_index  = 1
+mn_index    = 1
+H           = 0.587405
+region      = "CYTB"
+name        = region + "_unrooted"
+run_ID      = 3
+pps         = true
+
+seed(559284377)
+
+#################
+# Read the data #
+#################
+
+source("../../../rev_modules/read_data_subsets/read_sequence_data_" + region + ".Rev")
+
+#########################
+# Define the tree model #
+#########################
+
+source("../../../rev_modules/tree_model_unrooted.Rev")
+
+#################################
+# Define the substitution model #
+#################################
+
+source("../../../rev_modules/substitution_model.Rev")
+
+###############################################
+# Define the among-locus rate variation model #
+###############################################
+
+source("../../../rev_modules/alrv.Rev")
+
+################################
+# Define the tree-length model #
+################################
+
+source("../../../rev_modules/unrooted_tree_length.Rev")
+
+#########################
+# Define the CTCM model #
+#########################
+
+source("../../../rev_modules/ctmc.Rev")
+
+###################
+# Do the analysis #
+###################
+
+source("../../../rev_modules/analysis.Rev")
+
+q()

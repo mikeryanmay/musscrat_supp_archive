@@ -1,0 +1,14 @@
+#################
+# Read the data #
+#################
+
+data_pos_1 = readDiscreteCharacterData("../data/pruned/COI_pos_1.nex")
+data_pos_2 = readDiscreteCharacterData("../data/pruned/COI_pos_2.nex")
+data_pos_3 = readDiscreteCharacterData("../data/pruned/COI_pos_3.nex")
+
+taxa = data_pos_1.taxa()
+num_species = data_pos_1.ntaxa()
+
+data = v(data_pos_1, data_pos_2, data_pos_3)
+
+num_datasets = data.size()
