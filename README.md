@@ -1,6 +1,6 @@
 This repository contains the data and scripts necessary to recreate the analyses for "A Bayesian Approach for Inferring the Impact of a Discrete Character on Rates of Continuous-Character Evolution in the Presence of Background-Rate Variation".
 
-In general, /data contains input files for a particular set of analyses, /src contains scripts for simulating data, curating input data, and summarizing results, and /jobs contains Rev scripts for running analyses. R scripts will assume they are running from the top-level directory, while Rev scripts will assume they are running from the directory immediately above /jobs (i.e., to run analyses/empirical_analyses/haemulids/step_4/jobs/job_alpha_gamma_1_run_1.Rev, you should be in the analyses/empirical_analyses/haemulids/step_4/ directory).
+In general, /data contains input files for a particular set of analyses, /src contains scripts for simulating data, curating input data, and assembling Rev scripts, and /jobs contains Rev scripts for running analyses. R scripts will assume they are running from the top-level directory, while Rev scripts will assume they are running from the directory immediately above /jobs (i.e., to run analyses/empirical_analyses/haemulids/step_4/jobs/job_alpha_gamma_1_run_1.Rev, you should be in the analyses/empirical_analyses/haemulids/step_4/ directory).
 
 The repository is structured as follows:
 
@@ -39,20 +39,20 @@ The repository is structured as follows:
                 - /src/template_prior.Rev runs the model under the prior to generate the marginal prior distribution of tree lengths. This is used to calibrate the rate of discrete-character evolution.
                 - /src/trees.Rev computes MAP trees for each analysis.
     - /simulation_study
-        - simulate_data.sh simulates all of the data for each simulation experiment (Note: the following subdirectories contain the actual simulated datasets and random seeds we used in our manuscript; running this shell script will overwrite those datasets and seeds.)
+        - simulate_data.sh simulates all of the data for each simulation experiment.
         - /simulation_1: Scripts and data for constant-background-rate analyses.
-            - /data: Contains simulated data for simulation experiment 1.
+            - data.tar.gz: tar containing simulated data for simulation experiment 1.
             - /jobs: Contains Rev scripts for simulation experiment 1.
             - /src: Contains scripts for simulating data for simulation experiment 1.
         - /simulation_2: Scripts and data for variable-background-rate analyses.
-            - /data: Contains simulated data for simulation experiment 2.
+            - data.tar.gz: tar containing simulated data for simulation experiment 2.
             - /jobs: Contains Rev scripts for simulation experiment 2.
             - /src: Contains scripts for simulating data for simulation experiment 2.
         - /simulation_3: Scripts and data for the "cost of background-rate-variation" analyses.
-            - /data: Contains simulated data for simulation experiment 3.
+            - data.tar.gz: tar containing simulated data for simulation experiment 3.
             - /jobs: Contains Rev scripts for simulation experiment 3.
             - /src: Contains scripts for simulating data for simulation experiment 3.
         - /simulation_4: Scripts and data for the "consequences of ignoring background-rate-variation" analyses.
-            - /data: Contains simulated data for simulation experiment 4.
+            - data.tar.gz: tar containing simulated data for simulation experiment 4.
             - /jobs: Contains Rev scripts for simulation experiment 4.
             - /src: Contains scripts for simulating data for simulation experiment 4.
