@@ -7,6 +7,24 @@ The repository is structured as follows:
 - /utilities: Contains pre- and post-processing scripts required by the other scripts in the archive.
 - /analyses
     - /rev_modules: Contains Rev scripts used for empirical and simulation analyses (these modules are called by templates in the /haemulids and /simulation_study directories to create full analysis scripts).
+    - /simulation_study
+        - simulate_data.sh simulates all of the data for each simulation experiment.
+        - /simulation_1: Scripts and data for constant-background-rate analyses.
+            - data.tar.gz: tar containing simulated data for simulation experiment 1.
+            - /jobs: Contains Rev scripts for simulation experiment 1.
+            - /src: Contains scripts for simulating data for simulation experiment 1.
+        - /simulation_2: Scripts and data for variable-background-rate analyses.
+            - data.tar.gz: tar containing simulated data for simulation experiment 2.
+            - /jobs: Contains Rev scripts for simulation experiment 2.
+            - /src: Contains scripts for simulating data for simulation experiment 2.
+        - /simulation_3: Scripts and data for the "cost of background-rate-variation" analyses.
+            - data.tar.gz: tar containing simulated data for simulation experiment 3.
+            - /jobs: Contains Rev scripts for simulation experiment 3.
+            - /src: Contains scripts for simulating data for simulation experiment 3.
+        - /simulation_4: Scripts and data for the "consequences of ignoring background-rate-variation" analyses.
+            - data.tar.gz: tar containing simulated data for simulation experiment 4.
+            - /jobs: Contains Rev scripts for simulation experiment 4.
+            - /src: Contains scripts for simulating data for simulation experiment 4.
     - /empirical_analyses
         - /haemulids: Contains scripts for the empirical analysis of the Haemulids.
             - /data
@@ -30,29 +48,11 @@ The repository is structured as follows:
                 - /jobs: Contains the Rev scripts for 4 replicate relaxed-clock analyses under a GTR+G substitution model (partitioned by locus and codon position, when appropriate), a UCLN relaxed-clock model, and a sampled-birth-death tree-model prior.
                 - /src/estimate_starting_tree.R estimates a starting tree from the output of step_2.
                 - /src/trees.Rev computes MAP trees for each analysis.
-            - /step_4: Contains scripts for the prior sensitivity analysis for the state-dependent rate model. In this directory, gamma refers to the state-dependent rate ratio zeta^2_1 / zeta^2_0.
+            - /step_4: Contains scripts for the prior sensitivity experimennts that appear in the manuscript. In this directory, gamma refers to the state-dependent rate ratio zeta^2_1 / zeta^2_0.
                 - /jobs: Contains Rev scripts for 4 replicate analyses for each prior sensitivity experiment (more details are available in the main text).
-            - /step_5: Contains scripts for the "impact of background-rate-variation" empirical analyses.
+            - /step_5: Contains scripts for the "impact of background-rate-variation" analyses that appear in the manuscript.
                 - /jobs: Contains Rev scripts for 4 replicate analyses for each combination of constant/variable background-rate model and univariate/multivariate BM model. Only the multivariate BM model results are reported in the manuscript; the univariate model assumes that the correlation parameters between each pair of continuous characters are 0.
-            - /step_6: Contains scripts for the joint analysis of phylogeny reported in the supplemental material.
+            - /step_6: Contains scripts for the joint analysis of phylogeny and state-dependent model parameters that appears in the supplemental material.
                 - /jobs: Contains scripts for 4 replicate joint analyses of the tree and parameters of the state-dependent rate model.
                 - /src/template_prior.Rev runs the model under the prior to generate the marginal prior distribution of tree lengths. This is used to calibrate the rate of discrete-character evolution.
                 - /src/trees.Rev computes MAP trees for each analysis.
-    - /simulation_study
-        - simulate_data.sh simulates all of the data for each simulation experiment.
-        - /simulation_1: Scripts and data for constant-background-rate analyses.
-            - data.tar.gz: tar containing simulated data for simulation experiment 1.
-            - /jobs: Contains Rev scripts for simulation experiment 1.
-            - /src: Contains scripts for simulating data for simulation experiment 1.
-        - /simulation_2: Scripts and data for variable-background-rate analyses.
-            - data.tar.gz: tar containing simulated data for simulation experiment 2.
-            - /jobs: Contains Rev scripts for simulation experiment 2.
-            - /src: Contains scripts for simulating data for simulation experiment 2.
-        - /simulation_3: Scripts and data for the "cost of background-rate-variation" analyses.
-            - data.tar.gz: tar containing simulated data for simulation experiment 3.
-            - /jobs: Contains Rev scripts for simulation experiment 3.
-            - /src: Contains scripts for simulating data for simulation experiment 3.
-        - /simulation_4: Scripts and data for the "consequences of ignoring background-rate-variation" analyses.
-            - data.tar.gz: tar containing simulated data for simulation experiment 4.
-            - /jobs: Contains Rev scripts for simulation experiment 4.
-            - /src: Contains scripts for simulating data for simulation experiment 4.
