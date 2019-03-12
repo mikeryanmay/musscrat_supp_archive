@@ -1,3 +1,5 @@
+# MuSSCRat Supplemental Archive
+
 This repository contains the data and scripts necessary to recreate the analyses reported in the  manuscript "A Bayesian Approach for Inferring the Impact of a Discrete Character on Rates of Continuous-Character Evolution in the Presence of Background-Rate Variation".
 
 In general, /data contains input files for a particular set of analyses, /src contains scripts for simulating data, curating input data, and assembling Rev scripts, and /jobs contains Rev scripts for running analyses. R scripts will assume they are being run from the top-level directory, while Rev scripts will assume they are being run from the directory immediately above /jobs (i.e., to run analyses/empirical_analyses/haemulids/step_4/jobs/job_alpha_gamma_1_run_1.Rev, you should be in the analyses/empirical_analyses/haemulids/step_4/ directory).
