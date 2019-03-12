@@ -26,8 +26,8 @@ The repository is structured as follows:
                 - /jobs_pps: Contains scripts for generating posterior-predictive test statistics from output of the GTR+G models.
                 - /src/compare_pps.R generates the figures of the posterior-predictive test statistics under the GTR+G model.
                 - /src/trees.Rev computes MAP trees for each analysis.
-            - /step_3: Contains scripts for (relative) divergence-time estimation under a UCLN model.
-                - /jobs: Contains the Rev scripts for 4 replicate relaxed-clock analyses under a GTR+G substitution model (partitioned by locus and codon position, when appropriate), a UCLN relaxed-clock model, and a sampled-birth death tree-model prior.
+            - /step_3: Contains scripts for (relative) divergence-time estimation.
+                - /jobs: Contains the Rev scripts for 4 replicate relaxed-clock analyses under a GTR+G substitution model (partitioned by locus and codon position, when appropriate), a UCLN relaxed-clock model, and a sampled-birth-death tree-model prior.
                 - /src/estimate_starting_tree.R estimates a starting tree from the output of step_2.
                 - /src/trees.Rev computes MAP trees for each analysis.
             - /step_4: Contains scripts for the prior sensitivity analysis for the state-dependent rate model. In this directory, gamma refers to the state-dependent rate ratio zeta^2_1 / zeta^2_0.
