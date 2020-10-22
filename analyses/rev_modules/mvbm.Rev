@@ -2,5 +2,5 @@
 # Define the multivariate BM model #
 ####################################
 
-cont_traits ~ dnPhyloMultivariateBrownianREML(tree=psi, branchRates=overall_branch_rate, rateMatrix=sigma, nSites=num_cont_traits)
+cont_traits ~ dnPhyloMultivariateBrownianREML(tree=psi, branchRates=overall_branch_rate, rateMatrix=sigma)
 cont_traits.clamp(continuous_traits)
